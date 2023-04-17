@@ -1,0 +1,5 @@
+.idea
+target
+venv
+src/main/resources
+src/main/results
