@@ -14,10 +14,12 @@ public class PyStart {
     private static final String END_JSON = "end json";
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        String pathImage = "src/main/resources/man-and-table.jpeg";
         String pathSavingJSON = "src/main/results/resultJava.json";
         // Create a ProcessBuilder instance for the Python interpreter
         ProcessBuilder pb = new ProcessBuilder(
-                "python3", "src/main/python/nn-v2.py"); //nn-v2.py
+                //use nn-v2.py
+                "python3", "src/main/python/nn-v2.py");
         pb.redirectErrorStream(true);
         // Start the Python process
         Process process = pb.start();
@@ -30,7 +32,7 @@ public class PyStart {
         InputStream inputStream =
                 new BufferedInputStream(
                         Files.newInputStream(
-                                Paths.get("src/main/resources/man-and-table.jpeg")));
+                                Paths.get(pathImage)));
 
         ByteStreams.copy(inputStream, stdin);
 
@@ -50,6 +52,7 @@ public class PyStart {
         StringBuilder result = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null) {
+//            System.out.println(line);
             result.append(line);
         }
 

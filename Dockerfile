@@ -24,7 +24,7 @@ RUN mvn -f /opt/app/pom.xml clean install \
     && pip3 cache purge
 
 # Copy the built JAR file from the build stage
-COPY target/PyInJava-1.0-SNAPSHOT.jar /opt/app/app.jar
+COPY target/PyInJava-1.0-SNAPSHOT-jar-with-dependencies.jar /opt/app/app.jar
 
 # Set the entry point for the container
 CMD ["java", "-jar", "/opt/app/app.jar"]

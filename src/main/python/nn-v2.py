@@ -55,5 +55,6 @@ json.dump(output, sys.stdout, cls=NpEncoder)
 print("end json")
 sys.stdout.flush()
 
-# with open('src/main/results/result.json', 'w') as fp:
+# save result image
+# with open('src/main/results/resultImage.json', 'w') as fp:
 #     json.dump(output, fp, cls=NpEncoder)
