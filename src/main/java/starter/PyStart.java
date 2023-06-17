@@ -3,6 +3,8 @@ package starter;
 import com.google.common.io.ByteStreams;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class PyStart {
 
@@ -19,8 +21,7 @@ public class PyStart {
 
         // Data preparation
         InputStream inputStream =
-                new BufferedInputStream(new FileInputStream("src/main/resources/man-and-table.jpeg"));
-
+                new BufferedInputStream(Files.newInputStream(Paths.get("src/main/resources/man-and-table.jpeg")));
 
         ByteStreams.copy(inputStream, stdin);
 
