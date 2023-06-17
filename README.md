@@ -5,13 +5,8 @@ Neural network github [page](https://github.com/ayoolaolafenwa/PixelLib).
 ***Input:***   image.jpeg
 
 ***Output:*** JSON - the result of neural network
-## Usage with docker
-You can install docker [this](https://docs.docker.com/get-docker/)
-```bash
-docker build -t <name> .
-docker run <name> .
-```
-## Usage without docker
+
+
 ### Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install python libs.
