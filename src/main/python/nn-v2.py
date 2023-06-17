@@ -49,9 +49,11 @@ model = model.eval()
 # print(images)
 output = model(images)
 
+print("start json", end = "")
 # sending json result
 json.dump(output, sys.stdout, cls=NpEncoder)
+print("end json")
 sys.stdout.flush()
 
-with open('src/main/results/result.json', 'w') as fp:
-    json.dump(output, fp, cls=NpEncoder)
+# with open('src/main/results/result.json', 'w') as fp:
+#     json.dump(output, fp, cls=NpEncoder)
