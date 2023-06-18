@@ -37,9 +37,9 @@ transforms = weights.transforms()
 
 image_data = sys.stdin.buffer.read()
 image = torch.from_numpy(cv2.imdecode(np.frombuffer(image_data, np.uint8), cv2.IMREAD_COLOR))
-print(type(image))
+# print(type(image))
 image = image.transpose(0,2)
-print(image.shape, '1')
+# print(image.shape, '1')
 dog_list = [image]
 
 images = [transforms(d) for d in dog_list]
