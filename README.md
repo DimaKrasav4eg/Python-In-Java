@@ -1,11 +1,11 @@
 # Python-in-Java
-This java class use a neural network that is written in python.
-Neural network github [page](https://github.com/ayoolaolafenwa/PixelLib).
+This java class use a pyTorch neural network that is written in python.
+Neural network github [page](https://github.com/pytorch/vision/tree/8324c481dd4c3096697332d76fbdc9d912f7360b).
 
 ## How it works
-You can see how the model works 
-in more details 
-[here](https://towardsdatascience.com/image-segmentation-with-six-lines-0f-code-acb870a462e8). 
+You can see how the pyTorch model works 
+in more details in this 
+[paper](https://debuggercafe.com/object-detection-using-pytorch-faster-rcnn-resnet50-fpn-v2/). 
 My Java code send image as bytecode to NN, 
 it segmentation this image and sending coordinates of entity boxes 
 as JSON (people, tables and other).
