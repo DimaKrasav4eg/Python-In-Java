@@ -15,6 +15,7 @@ public class PyController {
     private OutputStream pyStdin;
     private InputStream pyStdout;
     private JSONObject json;
+    private String output;
 
     public PyController(String command, String nnPath) throws IOException {
         processBuilder = new ProcessBuilder(command, nnPath);
@@ -27,21 +28,21 @@ public class PyController {
         this.pyStdin = this.process.getOutputStream();
         ByteStreams.copy(image, this.pyStdin);
         pyStdin.close();
+        setOutput();
     }
-    public String getOutput() throws IOException, InterruptedException {
+    private void setOutput() throws IOException, InterruptedException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(this.pyStdout));
 
         // Read the output of the Python process
         StringBuilder result = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null) {
-//            System.out.println(line);
             result.append("\n").append(line);
         }
         this.json = parseJson(result.toString(), START_JSON, END_JSON);
         int exitCode = this.process.waitFor();
         result.append("\nPython process exited with code ").append(exitCode);
-        return result.toString();
+        this.output = result.toString();
     }
     private JSONObject parseJson(String s,
                                        String startSymbol,
@@ -52,6 +53,7 @@ public class PyController {
         if (matcher.find()){
             result = matcher.group();
         }
+//        System.out.println(result);
         int startJSONIndex = START_JSON.length()+1;
         int endJsonIndex = result.length() - END_JSON.length()-1;
         return new JSONObject(
@@ -60,8 +62,13 @@ public class PyController {
     public void save(String s, String filePath) throws IOException {
         PrintWriter file = new PrintWriter(new FileWriter(filePath));
         file.write(json.toString());
+        file.close();
     }
+    public void save(JSONObject json, String filePath) throws IOException {
+        save(json.toString(), filePath);
+    }
+
     public JSONObject getJson(){
-        return json;
+        return this.json;
     }
 }

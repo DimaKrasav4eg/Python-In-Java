@@ -25,20 +25,6 @@
             <artifactId>json</artifactId>
             <version>20230227</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-install-plugin</artifactId>-->
-<!--            <version>2.4</version>-->
-<!--            <type>maven-plugin</type>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-deploy-plugin</artifactId>-->
-<!--            <version>2.7</version>-->
-<!--            <type>maven-plugin</type>-->
-<!--        </dependency>-->
     </dependencies>
         <build>
             <plugins>
@@ -60,6 +46,8 @@
                                 <descriptorRefs>
                                     <descriptorRef>jar-with-dependencies</descriptorRef>
                                 </descriptorRefs>
+                                <finalName>PyInJavaStarter</finalName>
+                                <appendAssemblyId>false</appendAssemblyId>
                             </configuration>
                         </execution>
                     </executions>
