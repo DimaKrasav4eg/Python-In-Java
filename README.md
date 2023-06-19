@@ -11,7 +11,7 @@ it segmentation this image and sending coordinates of entity boxes
 as JSON (people, tables and other).
 ### Examples 
 ```bash
-java -jar target/PyInJavaStarter.jar src/main/resources/man-and-table.jpeg src/main/results/resultJava.json
+java -jar target/PyInJavaStarter.jar src/main/resources/images/man-and-table.jpeg src/main/results/json/resultJava.json
 ```
 Input image:
 
@@ -38,8 +38,7 @@ pip3 install aiogram
 ## Start
 
 ```bash
-mvn compile
-mvn package 
+mvn clean install
 java -jar target/PyInJavaStarter.jar imagePath resultPath
 ```
 "imagePath" is the path of your image
